@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd"
+	version="2.1">
+	
+	
+
+	<managed-bean>
+		<managed-bean-name>bmiBean</managed-bean-name>
+		<managed-bean-class>uic.edu.ids517.bmibean.BmiBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		
+		<managed-property>
+			<property-name>units</property-name>
+			<property-class>java.lang.String</property-class>
+			<value>SI</value>
+		</managed-property>
+
+		<!-- <managed-property>
+			<property-name>units</property-name>
+			<property-class>java.lang.String</property-class>
+			<value>SI</value>
+		</managed-property> -->
+
+		<managed-property>
+			<property-name>weight</property-name>
+			<property-class>java.lang.String</property-class>
+			<value>0</value>
+		</managed-property>
+
+		<managed-property>
+			<property-name>height</property-name>
+			<property-class>java.lang.String</property-class>
+			<value>0</value>
+		</managed-property>
+
+		<managed-property>
+			<property-name>bmi</property-name>
+			<property-class>java.lang.Double</property-class>
+			<value>0</value>
+		</managed-property>
+
+		<managed-property>
+			<property-name>bmiPrime</property-name>
+			<property-class>java.lang.Double</property-class>
+			<value></value>
+		</managed-property>
+
+		<managed-property>
+			<property-name>category</property-name>
+			<property-class>java.lang.String</property-class>
+			<value></value>
+		</managed-property>
+		
+		<managed-property>
+			<property-name>actionBeanDatabaseAccess</property-name>
+			<property-class>uic.edu.ids.actionbean.ActionBeanDatabaseAccess</property-class>
+			<value>#{actionBeanDatabaseAccess}</value>
+		</managed-property>
+		
+		
+		<managed-property>
+			<property-name>dbaccess</property-name>
+			<property-class>uic.edu.ids517.bmibean.DBAccessBean</property-class>
+			<value>#{dbaccess}</value>
+		</managed-property>
+		
+
+	</managed-bean>
+
+	<managed-bean>
+		<managed-bean-name>actionBeanBmi</managed-bean-name>
+		<managed-bean-class>uic.edu.ids517.bmibean.ActionBeanBmi</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+
+		<managed-property>
+			<property-name>bmiBean</property-name>
+			<property-class>uic.edu.ids517.bmibean.BmiBean</property-class>
+			<value>#{bmiBean}</value>
+		</managed-property>
+		
+		
+
+
+	</managed-bean>
+
+	<!-- DB access bean -->
+
+		<managed-bean>
+		<managed-bean-name>dbaccess</managed-bean-name>
+		<managed-bean-class>uic.edu.ids517.bmibean.DBAccessBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		
+		<managed-property>
+			<property-name>userName</property-name>
+			<property-class>java.lang.String</property-class>
+			<value></value>
+		</managed-property>
+
+		<managed-property>
+			<property-name>password</property-name>
+			<property-class>java.lang.String</property-class>
+			<value></value>
+		</managed-property>
+
+		<managed-property>
+			<property-name>host</property-name>
+			<property-class>java.lang.String</property-class>
+			<value></value>
+		</managed-property>
+
+		<managed-property>
+			<property-name>dbSchema</property-name>
+			<property-class>java.lang.String</property-class>
+			<value></value>
+		</managed-property>
+
+		<managed-property>
+			<property-name>dbms</property-name>
+			<property-class>java.lang.String</property-class>
+			<value></value>
+		</managed-property>
+		
+	</managed-bean>
+
+
+	
+
+
+	<managed-bean>
+		<managed-bean-name>actionBeanDB</managed-bean-name>
+		<managed-bean-class>uic.edu.ids517.bmibean.ActionBeanDB</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+
+		<managed-property>
+			<property-name>dbaccess</property-name>
+			<property-class>uic.edu.ids517.bmibean.DBAccessBean</property-class>
+			<value>#{dbaccess}</value>
+		</managed-property>
+
+
+	</managed-bean>
+
+
+	<!-- <managed-property> <property-name>dbaseBean</property-name> <property-class>uic.edu.ids517.bmibean.DbaseBean</property-class> 
+		<value>#{dbaseBean}</value> </managed-property> -->
+
+	<!-- <navigation-rule> <display-name> login</display-name> <from-view-id>/login.jsp</from-view-id> 
+		<navigation-case><from-outcome>SUCCESS</from-outcome> <to-view-id>/mainMenu.jsp</to-view-id> 
+		</navigation-case> <navigation-case><from-outcome>FAIL</from-outcome> <to-view-id>/login.jsp</to-view-id> 
+		</navigation-case> </navigation-rule> -->
+
+
+
+
+	<managed-bean>
+		<managed-bean-name>loanCalculator</managed-bean-name>
+		<managed-bean-class>uic.edu.ids517.bmibean.LoanCalculator</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+
+		<managed-property>
+			<property-name>purchaseprice</property-name>
+			<property-class>java.lang.String</property-class>
+			<value>0.0</value>
+		</managed-property>
+
+		<managed-property>
+			<property-name>downpayment</property-name>
+			<property-class>java.lang.String</property-class>
+			<value>0.0</value>
+		</managed-property>
+
+		<managed-property>
+			<property-name>annualinterestrate</property-name>
+			<property-class>java.lang.String</property-class>
+			<value>0.0</value>
+		</managed-property>
+
+		<managed-property>
+			<property-name>loanterm</property-name>
+			<property-class>java.lang.String</property-class>
+			<value>0.0</value>
+		</managed-property>
+
+
+		<managed-property>
+			<property-name>monthlypayment</property-name>
+			<property-class>java.lang.Double</property-class>
+			<value></value>
+		</managed-property>
+
+		<managed-property>
+			<property-name>totalpayment_nodownpayment</property-name>
+			<property-class>java.lang.Double</property-class>
+			<value></value>
+		</managed-property>
+
+		<managed-property>
+			<property-name>totalpayment_withdownpayment</property-name>
+			<property-class>java.lang.Double</property-class>
+			<value></value>
+		</managed-property>
+
+		<managed-property>
+			<property-name>totalinterest</property-name>
+			<property-class>java.lang.Double</property-class>
+			<value></value>
+		</managed-property>
+
+
+		<managed-property>
+			<property-name>actionBeanDatabaseAccess</property-name>
+			<property-class>uic.edu.ids.actionbean.ActionBeanDatabaseAccess</property-class>
+			<value>#{actionBeanDatabaseAccess}</value>
+		</managed-property>
+
+
+
+	</managed-bean>
+
+
+	<managed-bean>
+		<managed-bean-name>actionLoanCalculator</managed-bean-name>
+		<managed-bean-class>uic.edu.ids517.bmibean.ActionLoanCalculator</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+
+		<managed-property>
+			<property-name>loanCalculator</property-name>
+			<property-class>uic.edu.ids517.bmibean.LoanCalculator</property-class>
+			<value>#{loanCalculator}</value>
+		</managed-property>
+	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>actionBeanDatabaseAccess</managed-bean-name>
+		<managed-bean-class>uic.edu.ids.actionbean.ActionBeanDatabaseAccess</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		
+		<managed-property>
+			<property-name>dbaccess</property-name>
+			<property-class>uic.edu.ids517.bmibean.DBAccessBean</property-class>
+			<value>#{dbaccess}</value>
+		</managed-property>
+		
+		<managed-property>
+			<property-name>messageBean</property-name>
+			<property-class>uic.edu.ids517.bmibean.MessageBean</property-class>
+			<value>#{messageBean}</value>
+		</managed-property>
+		
+		<managed-property>
+			<property-name>bmibean</property-name>
+			<property-class>uic.edu.ids517.bmibean.BmiBean</property-class>
+			<value>#{bmibean}</value>
+		</managed-property>
+		
+		<managed-property>
+			<property-name>tableName</property-name>
+			<property-class>java.lang.String</property-class>
+			<value></value>
+		</managed-property>
+	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>messageBean</managed-bean-name>
+		<managed-bean-class>uic.edu.ids517.bmibean.MessageBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+
+<navigation-rule>
+		<display-name>login</display-name>
+		<from-view-id>/login.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>SUCCESS</from-outcome>
+			<to-view-id>/index.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>FAIL</from-outcome>
+			<to-view-id>/login.jsp</to-view-id>
+		</navigation-case>
+</navigation-rule>
+
+<navigation-rule>
+		<display-name>logout</display-name>
+		<from-view-id>/databaseAccess.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>YES</from-outcome>
+			<to-view-id>/login.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>NO</from-outcome>
+			<to-view-id>/databaseAccess.jsp</to-view-id>
+		</navigation-case>
+</navigation-rule>
+
+
+
+
+
+</faces-config>
